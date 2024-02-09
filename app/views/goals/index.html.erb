@@ -1,0 +1,20 @@
+<div class="w-full flex flex-col min-h-screen">
+  <div class="flex justify-between items-center">
+    <h1 class="font-semibold text-3xl text-gray-700">My Goals</h1>
+  </div>
+
+  <div id="goals" class="min-w-full flex-grow">
+    <% if @goals.any? %>
+      <%= turbo_frame_tag "goals_tab" do %>
+        <%= render partial: "goals/index", locals: { goals: @goals } %>
+       <% end %>
+    <% else %>
+      <div class="flex-grow flex flex-col items-center justify-center">
+        <%= image_tag 'auth.png', class: 'mx-auto mb-4' %>
+        <p class="text-gray-700 text-sm mb-2">You have no goals. Not going to lie, this is a bit sad.</p>
+        <%= link_to 'Create a Goal', new_goal_path, class: "rounded-lg py-4 px-8 bg-blue-600 text-white inline-block font-medium text-sm" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

@@ -1,0 +1,23 @@
+low_priority_goal:
+  title: "Low Priority Goal"
+  description: "This is a low priority goal."
+  due_date: <%= 1.week.from_now %>
+  priority: "Low"
+  completed: false
+  user: test
+
+medium_priority_goal:
+  title: "Medium Priority Goal"
+  description: "This is a medium priority goal."
+  due_date: <%= 2.weeks.from_now %>
+  priority: "Medium"
+  completed: false
+  user: test
+
+high_priority_goal:
+  title: "High Priority Goal"
+  description: "This is a high priority goal."
+  due_date: <%= 3.weeks.from_now %>
+  priority: "High"
+  completed: true
+  user: test

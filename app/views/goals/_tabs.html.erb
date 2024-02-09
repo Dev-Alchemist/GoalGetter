@@ -1,0 +1,22 @@
+<div class="border-b border-gray-200 dark:border-gray-700">
+  <ul class="flex flex-wrap -mb-px text-base font-medium text-center text-gray-500 dark:text-black list-none">
+    <li class="mr-3">
+      <%= link_to goals_path, class: "#{current_nav(goals_path)} inline-flex p-5 rounded-t-lg border-b-2 border-transparent hover:text-blue-600 hover:border-blue-500 dark:hover:text-blue-600 group" do %>
+        All
+      <% end %>
+    </li>
+    <li class="mr-3">
+      <%= link_to incomplete_goals_path, class: "#{current_nav(incomplete_goals_path)} inline-flex p-5 rounded-t-lg border-b-2 border-transparent hover:text-blue-600 hover:border-blue-500 dark:hover:text-blue-600 group" do %>
+        Incomplete
+      <% end %>
+    </li>
+    <li class="mr-3">
+      <%= link_to completed_goals_path, class: "#{current_nav(completed_goals_path)} inline-flex p-5 rounded-t-lg border-b-2 border-transparent hover:text-blue-600 hover:border-blue-500 dark:hover:text-gray-600 group" do %>
+        Completed
+      <% end %>
+    </li>
+    <li class="ml-auto">
+      <%= link_to 'Create a Goal', new_goal_path, class: "rounded-lg py-3 px-4 bg-blue-600 text-white inline-block font-medium text-sm" %>
+    </li>
+  </ul>
+</div>

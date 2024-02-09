@@ -1,0 +1,33 @@
+<%= form_with(model: goal, id:"goal_form") do |form| %>
+  <% if goal.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
+
+      <ul>
+        <% goal.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :title, "Goal Title" %>
+    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Goal Title", required: true, maxlength: 80 %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Description", required: true, maxlength: 500 %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :due_date, class: "block text-sm font-medium text-gray-700" %>
+    <%= form.date_field :due_date, class: "block w-1/4 mt-1 py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300", required: true %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :priority, class: "block text-sm font-medium text-gray-700" %>
+    <%= form.select :priority, Goal::PRIORITIES.map{|v|v.capitalize}, {}, class: "block w-1/4 mt-1 py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-gray-300 bg-white", required: true %>
+  </div>
+<% end %>
